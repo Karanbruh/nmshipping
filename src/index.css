@@ -1,0 +1,50 @@
+:root {
+  --primary: #1b3a5c;
+  --primary-dark: #0f2640;
+  --gold: #c9a84c;
+  --gold-light: #e8d48b;
+  --navy: #0d1b2a;
+  --cream: #faf8f2;
+  --light-gray: #f5f3ee;
+  --muted: #6c757d;
+  --text: #1a1a1a;
+  --white: #ffffff;
+  --radius-lg: 40px;
+  --radius-md: 28px;
+  --radius-sm: 18px;
+  --radius-pill: 999px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
