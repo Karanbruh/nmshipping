@@ -8,8 +8,17 @@
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
   margin-bottom: 12px;
+}
+
+.footer-brand-logo {
+  height: 56px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 6px 10px;
 }
 
 .footer-brand-text {

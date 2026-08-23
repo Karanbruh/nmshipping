@@ -7,14 +7,12 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light site-nav sticky-top">
       <div className="container-landing d-flex align-items-center w-100">
-        <Link className="navbar-brand d-flex align-items-center gap-2 me-auto" to="/">
-          <span className="brand-icon" aria-hidden="true">
-            <i className="bi bi-trophy-fill" />
-          </span>
-          <span className="brand-text">
-            <span>{BRAND.nameStart}</span>
-            {BRAND.nameEnd}
-          </span>
+        <Link className="navbar-brand d-flex align-items-center me-auto" to="/">
+          <img
+            src={BRAND.logo}
+            alt={BRAND.logoAlt}
+            className="brand-logo"
+          />
         </Link>
 
         <button

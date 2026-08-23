@@ -3,6 +3,8 @@ export const BRAND = {
   shortName: 'NM Shipping',
   nameStart: 'NM',
   nameEnd: ' Shipping',
+  logo: '/assets/logo/nm-shipping-logo.png',
+  logoAlt: 'Sheth Narottam Morarjee Shipping Cricket Tournament — Oval Maidan',
   copyright: '© 2026 Sheth Narottam Morarjee Shipping Cricket Tournament. All rights reserved.',
   tagline: 'A Legacy of Sportsmanship and Maritime Excellence',
 }

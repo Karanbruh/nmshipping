@@ -8,10 +8,11 @@ function Footer() {
         <div className="row g-5">
           <div className="col-lg-5">
             <div className="footer-brand">
-              <span className="brand-icon" aria-hidden="true">
-                <i className="bi bi-trophy-fill" />
-              </span>
-              <span className="footer-brand-text">{BRAND.shortName}</span>
+              <img
+                src={BRAND.logo}
+                alt={BRAND.logoAlt}
+                className="footer-brand-logo"
+              />
             </div>
             <p className="footer-tagline">{BRAND.tagline}</p>
             <div className="footer-contact-info">
