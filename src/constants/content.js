@@ -40,6 +40,24 @@ export const TOURNAMENT_UPDATE = {
   location: 'Mumbai',
 }
 
+export const TOURNAMENT_EMBEDS = [
+  {
+    year: 2026,
+    embedUrl:
+      'https://cricheroes.com/tournament/1/1867536/sheth-narottam-morarjee-shipping-cricket-tournament-2026/matches/live-matches',
+  },
+  {
+    year: 2025,
+    embedUrl:
+      'https://cricheroes.com/tournament/1/1360879/sheth-narottam-morarjee-shipping-cricket-tournament-2025/matches/past-matches',
+  },
+  {
+    year: 2024,
+    embedUrl:
+      'https://cricheroes.com/tournament/941469/sheth-narottam-morarjee-shipping-cricket-tournament-2024/matches/past-matches?colorcode=4991c1&type=m',
+  },
+]
+
 export const SOCIAL_LINKS = [
   { icon: 'bi-whatsapp', href: 'https://wa.me/919137601154', label: 'WhatsApp' },
 ]
@@ -49,6 +67,8 @@ export const HERO = {
   subtitle:
     'A prestigious annual cricket tournament celebrating sportsmanship and camaraderie within the shipping and allied industries since 1962.',
   venue: 'Oval Maidan (Elphinstone Ground)',
+  videoSrc: '/assets/video/sndm-18.mp4',
+  posterSrc: '/assets/video/sndm-18-poster.jpg',
 }
 
 export const ABOUT = {

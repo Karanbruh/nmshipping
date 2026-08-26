@@ -1,10 +1,35 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { HERO, IMAGES } from '../constants/content'
+import { HERO } from '../constants/content'
 
 function Hero() {
+  const [reduceMotion, setReduceMotion] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setReduceMotion(media.matches)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
+
   return (
     <section id="home" className="hero-banner">
-      <img className="hero-bg" src={IMAGES.hero} alt="Cricket match at Oval Maidan" />
+      {reduceMotion ? (
+        <img className="hero-bg" src={HERO.posterSrc} alt="Cricket match at Oval Maidan" />
+      ) : (
+        <video
+          className="hero-bg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={HERO.posterSrc}
+          aria-label="Tournament highlight video"
+        >
+          <source src={HERO.videoSrc} type="video/mp4" />
+        </video>
+      )}
       <div className="hero-content">
         <span className="hero-venue">
           <i className="bi bi-geo-alt-fill" /> {HERO.venue}

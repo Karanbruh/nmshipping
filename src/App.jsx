@@ -8,6 +8,7 @@ import BookingPage from './pages/BookingPage'
 import TournamentPage from './pages/TournamentPage'
 import CricketNewsPage from './pages/CricketNewsPage'
 import GalleryPage from './pages/GalleryPage'
+import AlbumPage from './components/gallery/AlbumPage'
 import SponsorsPage from './pages/SponsorsPage'
 
 function App() {
@@ -21,8 +22,10 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/tournament" element={<TournamentPage />} />
+          <Route path="/tournament/:year" element={<TournamentPage />} />
           <Route path="/cricket-news" element={<CricketNewsPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/gallery/:year/:slug" element={<AlbumPage />} />
           <Route path="/sponsors" element={<SponsorsPage />} />
         </Routes>
         <Footer />

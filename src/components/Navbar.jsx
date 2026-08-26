@@ -29,15 +29,21 @@ function Navbar() {
 
         <div className="collapse navbar-collapse justify-content-center" id="mainNav">
           <div className="nav-center d-flex flex-column flex-lg-row align-items-lg-center">
-            {NAV_LINKS.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={location.pathname === item.to ? 'active' : ''}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((item) => {
+              const isActive =
+                item.to === '/'
+                  ? location.pathname === '/'
+                  : location.pathname === item.to || location.pathname.startsWith(`${item.to}/`)
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={isActive ? 'active' : ''}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
             <Link
               to="/contact"
               className={`nav-contact-btn d-lg-none ${location.pathname === '/contact' ? 'active' : ''}`}

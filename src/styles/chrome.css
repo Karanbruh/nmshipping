@@ -158,6 +158,12 @@ section[id] {
   color: var(--white);
 }
 
+.pill-btn-outline-dark {
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+}
+
 .pill-btn-sm {
   padding: 8px 16px;
   font-size: 0.82rem;
@@ -186,7 +192,8 @@ section[id] {
   background: var(--navy);
 }
 
-.hero-banner img.hero-bg {
+.hero-banner img.hero-bg,
+.hero-banner video.hero-bg {
   position: absolute;
   inset: 0;
   width: 100%;
