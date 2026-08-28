@@ -33,3 +33,23 @@ export const SPONSORS = [
     logo: bjkSportsLogo,
   },
 ]
+
+/** Featured partners shown above the home video for exposure */
+export const PRESENTING_SPONSORS = [
+  {
+    id: 'jsw',
+    name: 'JSW',
+    logo: jswLogo,
+  },
+  {
+    id: 'jm-baxi',
+    name: 'J M BAXI',
+    tagline: 'The Port Specialist',
+    logo: jmBaxiLogo,
+  },
+  {
+    id: 'mca',
+    name: 'Mumbai Cricket Association',
+    logo: mcaLogo,
+  },
+]

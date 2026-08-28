@@ -10,15 +10,11 @@ export const BRAND = {
 }
 
 export const IMAGES = {
-  hero: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1800&q=80',
-  ground:
-    'https://images.unsplash.com/photo-1593766788373-3e4db1450b59?auto=format&fit=crop&w=1200&q=80',
-  cricket:
-    'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1600&q=80',
-  heritage:
-    'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=80',
-  maritime:
-    'https://images.unsplash.com/photo-1534224039826-c7a0eda0e6b3?auto=format&fit=crop&w=1200&q=80',
+  hero: '/assets/about/about-mission.jpg',
+  cricket: '/assets/about/about-legacy.jpg',
+  ground: '/assets/about/about-mission.jpg',
+  heritage: '/assets/about/about-values.jpg',
+  maritime: '/assets/about/about-vision.jpg',
 }
 
 export const NAV_LINKS = [
@@ -71,29 +67,60 @@ export const HERO = {
   posterSrc: '/assets/video/sndm-18-poster.jpg',
 }
 
+export const HOME_PROMOS = {
+  cricket: {
+    title: 'Tournament Updates',
+    subtitle: 'Match highlights, fixtures, and the latest from the ground.',
+    imageSrc: '/assets/about/about-legacy.jpg',
+    imageAlt: 'Cricket action from the Sheth Narottam Morarjee Shipping Cricket Tournament',
+    ctaLabel: 'Tournament Update',
+    ctaTo: '/tournament',
+    ctaVariant: 'gold',
+  },
+  venue: {
+    title: 'OVAL MAIDAN',
+    subtitle: '(ELPHINSTONE GROUND)',
+    imageSrc: '/assets/about/about-mission.jpg',
+    imageAlt: 'Oval Maidan cricket ground in Mumbai',
+    ctaLabel: 'Book now',
+    ctaTo: '/booking',
+    ctaVariant: 'primary',
+  },
+}
+
 export const ABOUT = {
-  badge: 'Our Legacy',
+  badge: 'About Us',
   heading: 'A Legacy of Sportsmanship and Maritime Excellence',
   text: 'The Sheth Narottam Morarjee Shipping Cricket Tournament, established in 1962, is a prestigious annual event celebrating the spirit of sportsmanship and camaraderie within the shipping industry. It was initiated by Late Smt. Sumati Morarjee, the then Director and ex-Chairperson of the Scindia Steam Navigation Co Ltd, with the vision of fostering a platform for corporate teams engaged in shipping and allied industries to compete and connect.',
-  textContinued: 'Over the past six decades, the tournament has grown in stature, attracting participation from renowned organizations worldwide. The event is a testament to the enduring legacy of the shipping industry and its commitment to promoting sports and fostering relationships.',
+  textContinued:
+    'Over the past six decades, the tournament has grown in stature, attracting participation from renowned organizations worldwide. The event is a testament to the enduring legacy of the shipping industry and its commitment to promoting sports and fostering relationships.',
+  image: IMAGES.cricket,
+  imageAlt: 'Cricket action celebrating the tournament legacy',
 }
 
 export const MISSION = {
-  badge: 'Our Mission',
+  heading: 'Our Mission',
   text: 'To continue the tradition of excellence and innovation in the Sheth Narottam Morarjee Shipping Cricket Tournament, providing a platform for corporate teams to showcase their talent, foster sportsmanship, and strengthen industry connections.',
+  image: IMAGES.ground,
+  imageAlt: 'Cricket match in progress at the tournament ground',
 }
 
 export const VISION = {
-  badge: 'Our Vision',
-  text: 'To make the Sheth Narottam Morarjee Shipping Cricket Tournament a Nationally recognized event, celebrating the spirit of sportsmanship within the maritime industry.',
+  heading: 'Our Vision',
+  text: 'To make the Sheth Narottam Morarjee Shipping Cricket Tournament a nationally recognized event, celebrating the spirit of sportsmanship within the maritime industry.',
+  image: IMAGES.maritime,
+  imageAlt: 'Players celebrating after a tournament match',
 }
 
 export const VALUES = {
-  badge: 'Our Values',
+  heading: 'Our Values',
+  image: IMAGES.heritage,
+  imageAlt: 'Cricket action reflecting tournament values of fair play and excellence',
   items: [
     {
       title: 'Community',
-      description: 'Fostering a sense of community and camaraderie amongst the Shipping and maritime industry.',
+      description:
+        'Fostering a sense of community and camaraderie amongst the shipping and maritime industry.',
     },
     {
       title: 'Excellence',

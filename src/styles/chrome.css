@@ -182,7 +182,7 @@ section[id] {
   margin-bottom: 16px;
 }
 
-/* Hero */
+/* Hero / home video */
 .hero-banner {
   position: relative;
   min-height: 620px;
@@ -199,76 +199,13 @@ section[id] {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.7;
 }
 
-.hero-banner::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(13, 27, 42, 0.4), rgba(13, 27, 42, 0.75));
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
+/* Clean video: full opacity, no text overlay */
+.home-video img.hero-bg,
+.home-video video.hero-bg {
+  opacity: 1;
   z-index: 1;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  color: var(--white);
-  padding: 120px 24px 100px;
-}
-
-.hero-venue {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius-pill);
-  padding: 8px 18px;
-  font-size: 0.85rem;
-  margin-bottom: 24px;
-  color: var(--gold-light);
-}
-
-.hero-content h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 18px;
-}
-
-.hero-content p {
-  font-size: 1rem;
-  opacity: 0.9;
-  margin-bottom: 36px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.hero-established {
-  position: absolute;
-  bottom: 24px;
-  right: 32px;
-  z-index: 2;
-  background: var(--gold);
-  color: var(--navy);
-  padding: 10px 20px;
-  border-radius: var(--radius-pill);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.03em;
 }
 
 /* Social */
@@ -349,23 +286,9 @@ section[id] {
     margin: 8px 12px 32px;
     min-height: 500px;
   }
-
-  .hero-content {
-    padding: 80px 16px 80px;
-  }
-
-  .hero-established {
-    bottom: 16px;
-    right: 16px;
-  }
 }
 
 @media (max-width: 575px) {
-  .hero-ctas {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .hero-banner {
     border-radius: var(--radius-md);
     min-height: 450px;
