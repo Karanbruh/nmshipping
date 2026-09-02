@@ -118,6 +118,10 @@ async function main() {
   const file = `/** Auto-generated gallery archive from nmshipping.in — do not edit by hand. */
 export const GALLERY_YEARS = ${JSON.stringify(GALLERY_YEARS, null, 2)}
 
+export const DEFAULT_GALLERY_YEAR = GALLERY_YEARS[0]?.year ?? 2026
+
+export const GALLERY_NAV_YEARS = GALLERY_YEARS.map(({ year }) => year)
+
 export function getGalleryYear(year) {
   const y = Number(year)
   return GALLERY_YEARS.find((entry) => entry.year === y) ?? null

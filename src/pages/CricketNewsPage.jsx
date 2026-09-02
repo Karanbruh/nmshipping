@@ -1,4 +1,5 @@
 import SectionBadge from '../components/ui/SectionBadge'
+import ScrollReveal from '../components/ui/ScrollReveal'
 import NewsCard from '../components/cricket-news/NewsCard'
 import { useCricketNews } from '../hooks/useCricketNews'
 
@@ -23,11 +24,13 @@ function CricketNewsPage() {
     <>
       <section className="page-hero">
         <div className="container-landing">
-          <SectionBadge>Cricket News</SectionBadge>
-          <h1 className="page-hero-title">Latest from Indian Cricket</h1>
-          <p className="page-hero-sub">
-            Stay updated with the latest Indian cricket headlines, match updates, and stories from trusted sources.
-          </p>
+          <ScrollReveal variant="fade-up" stagger={90}>
+            <SectionBadge>Cricket News</SectionBadge>
+            <h1 className="page-hero-title">Latest from Indian Cricket</h1>
+            <p className="page-hero-sub">
+              Stay updated with the latest Indian cricket headlines, match updates, and stories from trusted sources.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -44,33 +47,37 @@ function CricketNewsPage() {
           )}
 
           {!isLoading && error && (
-            <div className="cricket-news-empty">
-              <i className="bi bi-newspaper" aria-hidden="true" />
-              <p>{error}</p>
-              <button type="button" className="pill-btn pill-btn-primary" onClick={retry}>
-                <span>Try Again</span>
-              </button>
-            </div>
+            <ScrollReveal variant="fade-up">
+              <div className="cricket-news-empty">
+                <i className="bi bi-newspaper" aria-hidden="true" />
+                <p>{error}</p>
+                <button type="button" className="pill-btn pill-btn-primary" onClick={retry}>
+                  <span>Try Again</span>
+                </button>
+              </div>
+            </ScrollReveal>
           )}
 
           {!isLoading && !error && articles.length === 0 && (
-            <div className="cricket-news-empty">
-              <i className="bi bi-newspaper" aria-hidden="true" />
-              <p>No cricket news articles are available right now.</p>
-              <button type="button" className="pill-btn pill-btn-primary" onClick={retry}>
-                <span>Refresh</span>
-              </button>
-            </div>
+            <ScrollReveal variant="fade-up">
+              <div className="cricket-news-empty">
+                <i className="bi bi-newspaper" aria-hidden="true" />
+                <p>No cricket news articles are available right now.</p>
+                <button type="button" className="pill-btn pill-btn-primary" onClick={retry}>
+                  <span>Refresh</span>
+                </button>
+              </div>
+            </ScrollReveal>
           )}
 
           {!isLoading && !error && articles.length > 0 && (
-            <div className="row g-4">
+            <ScrollReveal variant="fade-up" stagger={80} className="row g-4">
               {articles.map((article) => (
                 <div key={article.id} className="col-md-6 col-lg-4">
                   <NewsCard article={article} />
                 </div>
               ))}
-            </div>
+            </ScrollReveal>
           )}
         </div>
       </section>

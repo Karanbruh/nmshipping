@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import SectionBadge from '../components/ui/SectionBadge'
+import ScrollReveal from '../components/ui/ScrollReveal'
 import { CONTACT } from '../constants/content'
 
 const CONTACT_ITEMS = [
@@ -49,11 +50,13 @@ function ContactPage() {
       {/* Hero */}
       <section className="page-hero">
         <div className="container-landing">
-          <SectionBadge>Contact Us</SectionBadge>
-          <h1 className="page-hero-title">Get In Touch</h1>
-          <p className="page-hero-sub">
-            We would love to speak with you. Feel free to reach out using the below details.
-          </p>
+          <ScrollReveal variant="fade-up" stagger={90}>
+            <SectionBadge>Contact Us</SectionBadge>
+            <h1 className="page-hero-title">Get In Touch</h1>
+            <p className="page-hero-sub">
+              We would love to speak with you. Feel free to reach out using the below details.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -62,13 +65,14 @@ function ContactPage() {
         <div className="container-landing">
           <div className="row g-4 g-xl-5 align-items-start">
             <div className="col-lg-5">
+              <ScrollReveal variant="fade-right">
               <div className="contact-info-panel">
                 <div className="contact-info-panel__header">
                   <h2>Contact Information</h2>
                   <p>Reach out through any of the channels below.</p>
                 </div>
 
-                <ul className="contact-info-list">
+                <ScrollReveal as="ul" variant="fade-up" delay={100} stagger={80} className="contact-info-list">
                   {CONTACT_ITEMS.map((item) => (
                     <li key={item.id} className="contact-info-list__item">
                       {item.href ? (
@@ -100,11 +104,13 @@ function ContactPage() {
                       )}
                     </li>
                   ))}
-                </ul>
+                </ScrollReveal>
               </div>
+              </ScrollReveal>
             </div>
 
             <div className="col-lg-7">
+              <ScrollReveal variant="fade-left" delay={120}>
               <div className="contact-form-wrap">
                 <h2>Send Us a Message</h2>
                 <form onSubmit={handleSubmit}>
@@ -170,6 +176,7 @@ function ContactPage() {
                   </div>
                 </form>
               </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import SectionBadge from '../ui/SectionBadge'
+import ScrollReveal from '../ui/ScrollReveal'
 import ContactCTA from '../ContactCTA'
 import Lightbox from './Lightbox'
 import { getGalleryAlbum } from '../../constants/gallery'
@@ -11,7 +12,7 @@ function AlbumPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null)
 
   if (!album) {
-    return <Navigate to="/gallery" replace />
+    return <Navigate to={`/gallery/${year}`} replace />
   }
 
   const openAt = (index) => setLightboxIndex(index)
@@ -25,22 +26,24 @@ function AlbumPage() {
     <>
       <section className="page-hero">
         <div className="container-landing">
-          <SectionBadge>Gallery {year}</SectionBadge>
-          <h1 className="page-hero-title">{album.title}</h1>
-          <p className="page-hero-sub">
-            {album.images.length} photo{album.images.length === 1 ? '' : 's'} from the tournament archive.
-          </p>
-          <Link to="/gallery" className="pill-btn pill-btn-outline-dark mt-3">
-            <span>
-              <i className="bi bi-arrow-left" /> Back to Gallery
-            </span>
-          </Link>
+          <ScrollReveal variant="fade-up" stagger={90}>
+            <SectionBadge>Gallery {year}</SectionBadge>
+            <h1 className="page-hero-title">{album.title}</h1>
+            <p className="page-hero-sub">
+              {album.images.length} photo{album.images.length === 1 ? '' : 's'} from the tournament archive.
+            </p>
+            <Link to={`/gallery/${year}`} className="pill-btn pill-btn-outline-dark mt-3">
+              <span>
+                <i className="bi bi-arrow-left" /> Back to {year} Gallery
+              </span>
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="gallery-main-section">
         <div className="container-landing">
-          <div className="gallery-photo-grid">
+          <ScrollReveal variant="fade-up" stagger={50} className="gallery-photo-grid">
             {album.images.map((src, index) => (
               <button
                 key={src}
@@ -52,7 +55,7 @@ function AlbumPage() {
                 <img src={src} alt="" loading="lazy" />
               </button>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 

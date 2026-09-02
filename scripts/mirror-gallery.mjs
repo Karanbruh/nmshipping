@@ -1,7 +1,6 @@
 /**
- * Mirror gallery images into public/assets/gallery and rewrite gallery.js
- * to local paths. Tries nmshipping.in first; falls back to a cricket photo pool
- * because remote uploads currently 404.
+ * Mirror gallery images from nmshipping.in into public/assets/gallery/files
+ * and rewrite gallery.js to use local paths.
  */
 import crypto from 'node:crypto'
 import fs from 'node:fs'
@@ -13,38 +12,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const OUT_JS = path.join(ROOT, 'src', 'constants', 'gallery.js')
 const GALLERY_DIR = path.join(ROOT, 'public', 'assets', 'gallery')
-const POOL_DIR = path.join(GALLERY_DIR, 'pool')
-
-const POOL_SOURCES = [
-  'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1400',
-  'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1400',
-  'https://images.unsplash.com/photo-1593766788373-3e4db1450b59?w=1400',
-  'https://images.unsplash.com/photo-1461896836934-ffe607ba6851?w=1400',
-  'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1400',
-  'https://images.unsplash.com/photo-1566577739112-32605b1b0b3b?w=1400',
-  'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1400',
-  'https://images.unsplash.com/photo-1624526267942-ab0ff8a3e25e?w=1400',
-  'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=1400',
-  'https://images.unsplash.com/photo-1587381477515-6ac4697d3d3b?w=1400',
-  'https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=1400',
-  'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=1400',
-  'https://picsum.photos/seed/nmship1/1400/900',
-  'https://picsum.photos/seed/nmship2/1400/900',
-  'https://picsum.photos/seed/nmship3/1400/900',
-  'https://picsum.photos/seed/nmship4/1400/900',
-  'https://picsum.photos/seed/nmship5/1400/900',
-  'https://picsum.photos/seed/nmship6/1400/900',
-  'https://picsum.photos/seed/nmship7/1400/900',
-  'https://picsum.photos/seed/nmship8/1400/900',
-]
-
-const LOCAL_SEED = [
-  path.join(ROOT, 'public', 'assets', 'about', 'about-legacy.jpg'),
-  path.join(ROOT, 'public', 'assets', 'about', 'about-mission.jpg'),
-  path.join(ROOT, 'public', 'assets', 'about', 'about-values.jpg'),
-  path.join(ROOT, 'public', 'assets', 'about', 'about-vision.jpg'),
-  path.join(ROOT, 'public', 'assets', 'video', 'sndm-18-poster.jpg'),
-]
 
 function hash(input) {
   return crypto.createHash('sha1').update(input).digest('hex').slice(0, 12)
@@ -80,60 +47,21 @@ async function download(url) {
   return isImageBuffer(buf) ? buf : null
 }
 
-async function ensurePool() {
-  fs.mkdirSync(POOL_DIR, { recursive: true })
-  const poolFiles = []
-
-  for (const src of LOCAL_SEED) {
-    if (!fs.existsSync(src)) continue
-    const name = `seed-${path.basename(src)}`
-    const dest = path.join(POOL_DIR, name)
-    if (!fs.existsSync(dest)) fs.copyFileSync(src, dest)
-    poolFiles.push(dest)
-  }
-
-  for (let i = 0; i < POOL_SOURCES.length; i++) {
-    const dest = path.join(POOL_DIR, `stock-${String(i + 1).padStart(2, '0')}.jpg`)
-    if (fs.existsSync(dest) && fs.statSync(dest).size > 1000) {
-      poolFiles.push(dest)
-      continue
-    }
-    process.stdout.write(`pool ${i + 1}/${POOL_SOURCES.length}... `)
-    const buf = await download(POOL_SOURCES[i])
-    if (!buf) {
-      console.log('FAIL')
-      continue
-    }
-    fs.writeFileSync(dest, buf)
-    poolFiles.push(dest)
-    console.log(`OK ${buf.length}`)
-    await sleep(150)
-  }
-
-  if (!poolFiles.length) {
-    throw new Error('No pool images available — cannot mirror gallery')
-  }
-  return poolFiles
-}
-
-function pickPool(poolFiles, key) {
-  const n = Number.parseInt(hash(key).slice(0, 8), 16)
-  return poolFiles[n % poolFiles.length]
-}
-
 function publicPathFor(filePath) {
   const rel = path.relative(path.join(ROOT, 'public'), filePath).split(path.sep).join('/')
   return `/${rel}`
 }
 
-async function mirrorUrl(remoteUrl, poolFiles, stats) {
+async function mirrorUrl(remoteUrl, stats) {
   if (remoteUrl.startsWith('/assets/')) {
     stats.cached++
     return remoteUrl
   }
 
   const id = hash(remoteUrl)
-  const mirrored = path.join(GALLERY_DIR, 'files', `${id}.jpg`)
+  const ext = path.extname(new URL(remoteUrl).pathname).replace(/^\./, '') || 'jpg'
+  const safeExt = ['jpg', 'jpeg', 'png', 'webp', 'gif'].includes(ext.toLowerCase()) ? ext : 'jpg'
+  const mirrored = path.join(GALLERY_DIR, 'files', `${id}.${safeExt}`)
 
   if (fs.existsSync(mirrored) && fs.statSync(mirrored).size > 1000) {
     stats.cached++
@@ -148,14 +76,18 @@ async function mirrorUrl(remoteUrl, poolFiles, stats) {
     return publicPathFor(mirrored)
   }
 
-  // Point at shared pool file (no per-image copy) when remote is unavailable
-  stats.fallback++
-  return publicPathFor(pickPool(poolFiles, remoteUrl))
+  stats.failed++
+  console.warn(`FAIL download: ${remoteUrl}`)
+  return remoteUrl
 }
 
 function writeGalleryJs(years) {
-  const file = `/** Gallery archive - images mirrored under /assets/gallery (remote nmshipping.in uploads 404). */
+  const file = `/** Gallery archive — images mirrored from nmshipping.in under /assets/gallery/files */
 export const GALLERY_YEARS = ${JSON.stringify(years, null, 2)}
+
+export const DEFAULT_GALLERY_YEAR = GALLERY_YEARS[0]?.year ?? 2026
+
+export const GALLERY_NAV_YEARS = GALLERY_YEARS.map(({ year }) => year)
 
 export function getGalleryYear(year) {
   const y = Number(year)
@@ -183,17 +115,15 @@ export function getFeaturedAlbumCovers(limit = 6) {
 }
 
 async function main() {
-  const poolFiles = await ensurePool()
-  console.log(`Pool size: ${poolFiles.length}`)
-
-  const stats = { remote: 0, fallback: 0, cached: 0 }
+  const stats = { remote: 0, failed: 0, cached: 0 }
   const urlCache = new Map()
 
   async function resolve(url) {
     if (!url) return null
     if (urlCache.has(url)) return urlCache.get(url)
-    const local = await mirrorUrl(url, poolFiles, stats)
+    const local = await mirrorUrl(url, stats)
     urlCache.set(url, local)
+    await sleep(100)
     return local
   }
 
@@ -204,9 +134,9 @@ async function main() {
       const images = []
       for (const src of album.images) {
         images.push(await resolve(src))
-        if ((stats.remote + stats.fallback + stats.cached) % 25 === 0) {
+        if ((stats.remote + stats.failed + stats.cached) % 25 === 0) {
           console.log(
-            `progress remote=${stats.remote} fallback=${stats.fallback} cached=${stats.cached}`,
+            `progress remote=${stats.remote} failed=${stats.failed} cached=${stats.cached}`,
           )
         }
       }
@@ -224,7 +154,7 @@ async function main() {
   writeGalleryJs(years)
   console.log(`Wrote ${OUT_JS}`)
   console.log(
-    `Done remote=${stats.remote} fallback=${stats.fallback} cached=${stats.cached} unique=${urlCache.size}`,
+    `Done remote=${stats.remote} failed=${stats.failed} cached=${stats.cached} unique=${urlCache.size}`,
   )
 }
 

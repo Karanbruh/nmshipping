@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
+import ScrollReveal from './ui/ScrollReveal'
 import { CONTACT } from '../constants/content'
 
 function ContactCTA() {
   return (
-    <section className="contact-cta-section">
+    <ScrollReveal as="section" variant="fade-up" className="contact-cta-section">
       <div className="container-landing text-center">
         <h2 className="cta-heading">Get In Touch</h2>
         <p className="cta-sub">
@@ -19,7 +20,7 @@ function ContactCTA() {
           </a>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   )
 }
 

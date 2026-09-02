@@ -1,5 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
 import { BRAND, NAV_LINKS } from '../constants/content'
+import NavDropdown from './NavDropdown'
+
+function isLinkActive(location, to) {
+  if (to === '/') return location.pathname === '/'
+  return location.pathname === to || location.pathname.startsWith(`${to}/`)
+}
 
 function Navbar() {
   const location = useLocation()
@@ -8,11 +14,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-light site-nav sticky-top">
       <div className="container-landing d-flex align-items-center w-100">
         <Link className="navbar-brand d-flex align-items-center me-auto" to="/">
-          <img
-            src={BRAND.logo}
-            alt={BRAND.logoAlt}
-            className="brand-logo"
-          />
+          <img src={BRAND.logo} alt={BRAND.logoAlt} className="brand-logo" />
         </Link>
 
         <button
@@ -30,16 +32,13 @@ function Navbar() {
         <div className="collapse navbar-collapse justify-content-center" id="mainNav">
           <div className="nav-center d-flex flex-column flex-lg-row align-items-lg-center">
             {NAV_LINKS.map((item) => {
-              const isActive =
-                item.to === '/'
-                  ? location.pathname === '/'
-                  : location.pathname === item.to || location.pathname.startsWith(`${item.to}/`)
+              if (item.children?.length) {
+                return <NavDropdown key={item.label} item={item} />
+              }
+
+              const isActive = isLinkActive(location, item.to)
               return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className={isActive ? 'active' : ''}
-                >
+                <Link key={item.to} to={item.to} className={isActive ? 'active' : ''}>
                   {item.label}
                 </Link>
               )

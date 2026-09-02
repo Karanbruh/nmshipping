@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
+import ScrollReveal from './ui/ScrollReveal'
 import { BRAND, CONTACT, FOOTER_LINKS, SOCIAL_LINKS } from '../constants/content'
 
 function Footer() {
   return (
-    <footer className="site-footer">
+    <ScrollReveal as="footer" variant="fade-up" className="site-footer">
       <div className="container-landing">
-        <div className="row g-5">
+        <ScrollReveal variant="fade-up" stagger={100} className="row g-5">
           <div className="col-lg-5">
             <div className="footer-brand">
               <img
@@ -44,13 +45,15 @@ function Footer() {
               <span>WhatsApp Us</span>
             </a>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="footer-bottom">
-          <span>{BRAND.copyright}</span>
-        </div>
+        <ScrollReveal variant="fade" delay={200}>
+          <div className="footer-bottom">
+            <span>{BRAND.copyright}</span>
+          </div>
+        </ScrollReveal>
       </div>
-    </footer>
+    </ScrollReveal>
   )
 }
 

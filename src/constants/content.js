@@ -1,3 +1,6 @@
+import { DEFAULT_GALLERY_YEAR, GALLERY_NAV_YEARS } from './gallery'
+import { DEFAULT_SPONSORS_YEAR, SPONSORS_NAV_YEARS } from './sponsors'
+
 export const BRAND = {
   name: 'Sheth Narottam Morarjee Shipping Cricket Tournament',
   shortName: 'NM Shipping',
@@ -23,14 +26,28 @@ export const NAV_LINKS = [
   { label: 'Booking', to: '/booking' },
   { label: 'Tournament', to: '/tournament' },
   { label: 'Cricket News', to: '/cricket-news' },
-  { label: 'Gallery', to: '/gallery' },
-  { label: 'Sponsors', to: '/sponsors' },
+  {
+    label: 'Gallery',
+    to: `/gallery/${DEFAULT_GALLERY_YEAR}`,
+    children: GALLERY_NAV_YEARS.map((year) => ({
+      label: String(year),
+      to: `/gallery/${year}`,
+    })),
+  },
+  {
+    label: 'Sponsors',
+    to: `/sponsors/${DEFAULT_SPONSORS_YEAR}`,
+    children: SPONSORS_NAV_YEARS.map((year) => ({
+      label: String(year),
+      to: `/sponsors/${year}`,
+    })),
+  },
 ]
 
 export const TOURNAMENT_UPDATE = {
   year: 2026,
   title: 'Sheth Narottam Morarjee Shipping Cricket Tournament 2026',
-  posterSrc: '/assets/tournament/tournament-update-2026.webp',
+  posterSrc: '/assets/tournament/tournament-update-2026.png',
   qrCaption: 'Let cricketers find this tournament. Scan this QR code.',
   website: 'www.nmshipping.com',
   location: 'Mumbai',
@@ -78,8 +95,8 @@ export const HOME_PROMOS = {
     ctaVariant: 'gold',
   },
   venue: {
-    title: 'OVAL MAIDAN',
-    subtitle: '(ELPHINSTONE GROUND)',
+    title: 'Oval Maidan (Elphinstone Ground)',
+    subtitle: 'Book Mumbai\'s iconic cricket ground for your next match or corporate event.',
     imageSrc: '/assets/about/about-mission.jpg',
     imageAlt: 'Oval Maidan cricket ground in Mumbai',
     ctaLabel: 'Book now',
@@ -88,50 +105,104 @@ export const HOME_PROMOS = {
   },
 }
 
+export const BOOKING = {
+  venue: {
+    title: 'Oval Maidan (Elphinstone Ground)',
+    location: 'Mumbai, Maharashtra',
+    description:
+      'The historic Oval Maidan, also known as the Elphinstone Ground, sits in the heart of Mumbai. This iconic ground has been the home of the NM Shipping Cricket Tournament, hosting decades of competitive cricket among corporate teams.',
+    imageSrc: '/assets/about/about-mission.jpg',
+    imageAlt: 'Oval Maidan cricket ground in Mumbai',
+  },
+  unavailable: {
+    title: 'Booking Not Available',
+    message:
+      'Online booking for Oval Maidan is currently unavailable. For enquiries about ground availability, corporate events, or match bookings, please contact us directly.',
+  },
+}
+
+export const VENUE_CAROUSEL_IMAGES = [
+  {
+    src: '/assets/about/about-mission.jpg',
+    alt: 'Oval Maidan cricket ground in Mumbai',
+  },
+  {
+    src: '/assets/about/about-legacy.jpg',
+    alt: 'Cricket action from the Sheth Narottam Morarjee Shipping Cricket Tournament',
+  },
+  {
+    src: '/assets/video/sndm-18-poster.jpg',
+    alt: 'Tournament highlight at Oval Maidan',
+  },
+  {
+    src: '/assets/gallery/pool/stock-01.jpg',
+    alt: 'Cricket match in progress',
+  },
+  {
+    src: '/assets/gallery/pool/stock-09.jpg',
+    alt: 'Players on the cricket field',
+  },
+]
+
 export const ABOUT = {
   badge: 'About Us',
+  heroImage: '/assets/about/about-mission.jpg',
   heading: 'A Legacy of Sportsmanship and Maritime Excellence',
   text: 'The Sheth Narottam Morarjee Shipping Cricket Tournament, established in 1962, is a prestigious annual event celebrating the spirit of sportsmanship and camaraderie within the shipping industry. It was initiated by Late Smt. Sumati Morarjee, the then Director and ex-Chairperson of the Scindia Steam Navigation Co Ltd, with the vision of fostering a platform for corporate teams engaged in shipping and allied industries to compete and connect.',
   textContinued:
     'Over the past six decades, the tournament has grown in stature, attracting participation from renowned organizations worldwide. The event is a testament to the enduring legacy of the shipping industry and its commitment to promoting sports and fostering relationships.',
   image: IMAGES.cricket,
   imageAlt: 'Cricket action celebrating the tournament legacy',
+  stats: [
+    { value: '1962', label: 'Established' },
+    { value: '60+', label: 'Years of Legacy' },
+    { value: 'Mumbai', label: 'Home Ground' },
+  ],
 }
 
 export const MISSION = {
+  badge: 'Our Purpose',
   heading: 'Our Mission',
+  icon: 'bi-bullseye',
   text: 'To continue the tradition of excellence and innovation in the Sheth Narottam Morarjee Shipping Cricket Tournament, providing a platform for corporate teams to showcase their talent, foster sportsmanship, and strengthen industry connections.',
   image: IMAGES.ground,
   imageAlt: 'Cricket match in progress at the tournament ground',
 }
 
 export const VISION = {
+  badge: 'Looking Ahead',
   heading: 'Our Vision',
+  icon: 'bi-binoculars',
   text: 'To make the Sheth Narottam Morarjee Shipping Cricket Tournament a nationally recognized event, celebrating the spirit of sportsmanship within the maritime industry.',
   image: IMAGES.maritime,
   imageAlt: 'Players celebrating after a tournament match',
 }
 
 export const VALUES = {
+  badge: 'What We Stand For',
   heading: 'Our Values',
   image: IMAGES.heritage,
   imageAlt: 'Cricket action reflecting tournament values of fair play and excellence',
   items: [
     {
       title: 'Community',
+      icon: 'bi-people-fill',
       description:
         'Fostering a sense of community and camaraderie amongst the shipping and maritime industry.',
     },
     {
       title: 'Excellence',
+      icon: 'bi-trophy-fill',
       description: 'Striving for the highest standards of competition and performance.',
     },
     {
       title: 'Fair Play',
+      icon: 'bi-shield-check',
       description: 'Adhering to the principles of fair play and sportsmanship.',
     },
     {
       title: 'Innovation',
+      icon: 'bi-lightbulb-fill',
       description: 'Embracing new ideas and technologies to enhance the tournament experience.',
     },
   ],
@@ -150,8 +221,8 @@ export const FOOTER_LINKS = {
     { label: 'About Us', to: '/about' },
     { label: 'Tournament', to: '/tournament' },
     { label: 'Cricket News', to: '/cricket-news' },
-    { label: 'Gallery', to: '/gallery' },
-    { label: 'Sponsors', to: '/sponsors' },
+    { label: 'Gallery', to: `/gallery/${DEFAULT_GALLERY_YEAR}` },
+    { label: 'Sponsors', to: `/sponsors/${DEFAULT_SPONSORS_YEAR}` },
     { label: 'Contact Us', to: '/contact' },
   ],
 }

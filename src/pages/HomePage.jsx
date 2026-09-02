@@ -1,6 +1,7 @@
 import PresentingSponsors from '../components/PresentingSponsors'
 import Hero from '../components/Hero'
 import HomePromoBanner from '../components/HomePromoBanner'
+import HomeVenueCarousel from '../components/HomeVenueCarousel'
 import About from '../components/About'
 import TournamentUpdateSection from '../components/TournamentUpdateSection'
 import SponsorsSection from '../components/SponsorsSection'
@@ -13,7 +14,7 @@ function HomePage() {
       <PresentingSponsors />
       <Hero />
       <HomePromoBanner variant="cricket" />
-      <HomePromoBanner variant="venue" />
+      <HomeVenueCarousel />
       <About />
       <TournamentUpdateSection />
       <GalleryPreview />

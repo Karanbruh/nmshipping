@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
-import { PRESENTING_SPONSORS } from '../constants/sponsors'
+import { DEFAULT_SPONSORS_YEAR, PRESENTING_SPONSORS } from '../constants/sponsors'
+import ScrollReveal from './ui/ScrollReveal'
 
 function PresentingSponsors() {
   return (
-    <section className="presenting-sponsors" aria-label="Presenting partners">
+    <ScrollReveal as="section" variant="fade-down" className="presenting-sponsors" aria-label="Presenting partners">
       <div className="container-landing">
         <p className="presenting-sponsors__label">Presenting Partners</p>
-        <ul className="presenting-sponsors__list">
+        <ScrollReveal as="ul" variant="fade-up" stagger={120} className="presenting-sponsors__list">
           {PRESENTING_SPONSORS.map((sponsor) => (
             <li key={sponsor.id} className="presenting-sponsors__item">
-              <Link to="/sponsors" className="presenting-sponsors__link" title={sponsor.name}>
+              <Link to={`/sponsors/${DEFAULT_SPONSORS_YEAR}`} className="presenting-sponsors__link" title={sponsor.name}>
                 <img
                   src={sponsor.logo}
                   alt={sponsor.name}
@@ -19,9 +20,9 @@ function PresentingSponsors() {
               </Link>
             </li>
           ))}
-        </ul>
+        </ScrollReveal>
       </div>
-    </section>
+    </ScrollReveal>
   )
 }
 
