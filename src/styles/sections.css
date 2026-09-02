@@ -298,7 +298,7 @@
   color: #4b5563;
 }
 
-.about-section .about-split__media img {
+.about-section .about-split__media-frame img {
   height: 380px;
 }
 
@@ -307,7 +307,7 @@
     max-width: none;
   }
 
-  .about-section .about-split__media img {
+  .about-section .about-split__media-frame img {
     height: 260px;
   }
 }

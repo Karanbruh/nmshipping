@@ -1,5 +1,5 @@
-import { DEFAULT_GALLERY_YEAR, GALLERY_NAV_YEARS } from './gallery'
-import { DEFAULT_SPONSORS_YEAR, SPONSORS_NAV_YEARS } from './sponsors'
+import { DEFAULT_GALLERY_YEAR } from './gallery'
+import { DEFAULT_SPONSORS_YEAR } from './sponsors'
 
 export const BRAND = {
   name: 'Sheth Narottam Morarjee Shipping Cricket Tournament',
@@ -26,23 +26,20 @@ export const NAV_LINKS = [
   { label: 'Booking', to: '/booking' },
   { label: 'Tournament', to: '/tournament' },
   { label: 'Cricket News', to: '/cricket-news' },
-  {
-    label: 'Gallery',
-    to: `/gallery/${DEFAULT_GALLERY_YEAR}`,
-    children: GALLERY_NAV_YEARS.map((year) => ({
-      label: String(year),
-      to: `/gallery/${year}`,
-    })),
-  },
-  {
-    label: 'Sponsors',
-    to: `/sponsors/${DEFAULT_SPONSORS_YEAR}`,
-    children: SPONSORS_NAV_YEARS.map((year) => ({
-      label: String(year),
-      to: `/sponsors/${year}`,
-    })),
-  },
+  { label: 'Gallery', to: `/gallery/${DEFAULT_GALLERY_YEAR}` },
+  { label: 'Sponsors', to: `/sponsors/${DEFAULT_SPONSORS_YEAR}` },
 ]
+
+export const PAGE_HERO_IMAGES = {
+  about: '/assets/about/about-mission.jpg',
+  tournament: '/assets/about/about-vision.jpg',
+  cricketNews: '/assets/about/about-legacy.jpg',
+  contact: '/assets/video/sndm-18-poster.jpg',
+  gallery: '/assets/gallery/pool/stock-01.jpg',
+  sponsors: '/assets/about/about-mission.jpg',
+  booking: '/assets/about/about-mission.jpg',
+  album: '/assets/about/about-legacy.jpg',
+}
 
 export const TOURNAMENT_UPDATE = {
   year: 2026,
@@ -146,7 +143,7 @@ export const VENUE_CAROUSEL_IMAGES = [
 
 export const ABOUT = {
   badge: 'About Us',
-  heroImage: '/assets/about/about-mission.jpg',
+  heroImage: PAGE_HERO_IMAGES.about,
   heading: 'A Legacy of Sportsmanship and Maritime Excellence',
   text: 'The Sheth Narottam Morarjee Shipping Cricket Tournament, established in 1962, is a prestigious annual event celebrating the spirit of sportsmanship and camaraderie within the shipping industry. It was initiated by Late Smt. Sumati Morarjee, the then Director and ex-Chairperson of the Scindia Steam Navigation Co Ltd, with the vision of fostering a platform for corporate teams engaged in shipping and allied industries to compete and connect.',
   textContinued:

@@ -15,9 +15,17 @@ section[id] {
 /* Navbar */
 .site-nav {
   background: var(--white);
-  padding: 18px 0;
+  padding: 14px 0;
   z-index: 1030;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.site-nav .container-landing {
+  gap: 16px;
+}
+
+.site-nav .navbar-collapse {
+  flex-grow: 0;
 }
 
 .brand-logo {
@@ -53,69 +61,109 @@ section[id] {
 }
 
 .nav-center {
-  gap: 32px;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
-.nav-center a {
-  color: #6b7280;
-  font-size: 0.9rem;
+.nav-center > a:not(.nav-contact-btn),
+.nav-dropdown {
+  flex-shrink: 0;
+}
+
+/* Shared pill shape for all nav items */
+.nav-center > a:not(.nav-contact-btn),
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  white-space: nowrap;
+  font-size: 0.875rem;
   font-weight: 500;
-  transition: color 0.15s ease;
+  line-height: 1;
+  color: #64748b;
+  background: transparent;
+  transition: color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
 }
 
-.nav-center a:hover,
-.nav-center a.active {
+.nav-center > a:not(.nav-contact-btn):hover,
+.nav-dropdown:not(.active) .nav-dropdown-trigger:hover {
   color: var(--primary);
+  background: rgba(27, 58, 92, 0.06);
+}
+
+.nav-center > a:not(.nav-contact-btn).active,
+.nav-dropdown.active .nav-dropdown-trigger {
+  color: var(--white);
+  background: var(--primary);
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(27, 58, 92, 0.22);
+}
+
+.nav-center > a:not(.nav-contact-btn).active:hover,
+.nav-dropdown.active .nav-dropdown-trigger:hover {
+  color: var(--white);
+  background: var(--primary-dark);
 }
 
 /* Nav dropdown (Gallery years) */
 .nav-dropdown {
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-dropdown-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
+  gap: 4px;
+  padding: 0 12px 0 16px;
+  cursor: default;
 }
 
 .nav-dropdown-trigger > a {
-  color: #6b7280;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: color 0.15s ease;
-}
-
-.nav-dropdown.active .nav-dropdown-trigger > a,
-.nav-dropdown-trigger > a.active {
-  color: var(--primary);
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  height: auto;
+  white-space: nowrap;
 }
 
 .nav-dropdown-trigger > a:hover {
-  color: var(--primary);
+  color: inherit;
+  background: transparent;
 }
 
 .nav-dropdown-chevron {
   appearance: none;
   border: 0;
   background: transparent;
-  color: #9ca3af;
-  padding: 4px;
+  color: inherit;
+  opacity: 0.65;
+  padding: 0;
+  margin-left: -2px;
   line-height: 1;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.15s ease, transform 0.2s ease;
+  transition: opacity 0.18s ease, transform 0.2s ease;
 }
 
 .nav-dropdown-chevron i {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
 }
 
-.nav-dropdown.active .nav-dropdown-chevron,
-.nav-dropdown.is-open .nav-dropdown-chevron {
-  color: var(--primary);
+.nav-dropdown.active .nav-dropdown-chevron {
+  opacity: 0.9;
 }
 
 .nav-dropdown.is-open .nav-dropdown-chevron i {
@@ -419,10 +467,6 @@ section[id] {
   background: rgba(255, 255, 255, 0.96);
 }
 
-.page-hero--gallery {
-  background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
-}
-
 .gallery-hero-stats {
   display: flex;
   flex-wrap: wrap;
@@ -451,8 +495,26 @@ section[id] {
 /* Responsive */
 @media (max-width: 991px) {
   .nav-center {
-    gap: 12px;
+    gap: 4px;
     padding: 16px 0;
+    align-items: stretch;
+  }
+
+  .nav-center > a:not(.nav-contact-btn),
+  .nav-dropdown-trigger {
+    width: 100%;
+    justify-content: flex-start;
+    height: 42px;
+    padding: 0 14px;
+  }
+
+  .nav-dropdown-trigger {
+    padding: 0 14px;
+  }
+
+  .nav-center > a:not(.nav-contact-btn).active,
+  .nav-dropdown.active .nav-dropdown-trigger {
+    box-shadow: none;
   }
 
   .brand-logo {

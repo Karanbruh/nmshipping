@@ -1,9 +1,10 @@
 import { useMemo } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import SectionBadge from '../components/ui/SectionBadge'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import PageHero from '../components/ui/PageHero'
 import ContactCTA from '../components/ContactCTA'
 import YearFilter from '../components/gallery/YearFilter'
+import { PAGE_HERO_IMAGES } from '../constants/content'
 import {
   DEFAULT_SPONSORS_YEAR,
   SPONSORS_YEARS,
@@ -36,18 +37,12 @@ function SponsorsPage() {
 
   return (
     <>
-      <section className="page-hero">
-        <div className="container-landing">
-          <ScrollReveal variant="fade-up" stagger={90}>
-            <SectionBadge>Sponsors</SectionBadge>
-            <h1 className="page-hero-title">Our Sponsors {activeYear}</h1>
-            <p className="page-hero-sub">
-              The Sheth Narottam Morarjee Shipping Cricket Tournament is proudly supported by
-              organizations from the shipping and allied industries.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <PageHero
+        badge="Sponsors"
+        title={`Our Sponsors ${activeYear}`}
+        subtitle="The Sheth Narottam Morarjee Shipping Cricket Tournament is proudly supported by organizations from the shipping and allied industries."
+        imageSrc={PAGE_HERO_IMAGES.sponsors}
+      />
 
       <section className="sponsors-main-section">
         <div className="container-landing">

@@ -2,10 +2,11 @@ import { useMemo } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import SectionBadge from '../components/ui/SectionBadge'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import PageHero from '../components/ui/PageHero'
 import ContactCTA from '../components/ContactCTA'
 import TournamentUpdateSection from '../components/TournamentUpdateSection'
 import YearFilter from '../components/gallery/YearFilter'
-import { IMAGES, TOURNAMENT_EMBEDS } from '../constants/content'
+import { PAGE_HERO_IMAGES, TOURNAMENT_EMBEDS } from '../constants/content'
 
 const DEFAULT_YEAR = TOURNAMENT_EMBEDS[0].year
 
@@ -31,42 +32,12 @@ function TournamentPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero">
-        <div className="container-landing">
-          <ScrollReveal variant="fade-up" stagger={90}>
-            <SectionBadge>Tournament</SectionBadge>
-            <h1 className="page-hero-title">Sheth Narottam Morarjee Shipping Cricket Tournament</h1>
-            <p className="page-hero-sub">
-              A prestigious annual cricket tournament for corporate teams from the shipping and allied industries.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Venue */}
-      <section className="tournament-venue-section">
-        <div className="container-landing">
-          <div className="row g-5 align-items-center">
-            <div className="col-lg-6">
-              <ScrollReveal variant="fade-right">
-              <div className="tournament-venue-image">
-                <img src={IMAGES.ground} alt="Oval Maidan cricket ground" />
-              </div>
-              </ScrollReveal>
-            </div>
-            <div className="col-lg-6">
-              <ScrollReveal variant="fade-left" delay={120}>
-              <SectionBadge>Venue</SectionBadge>
-              <h2 className="tournament-venue-heading">Oval Maidan (Elphinstone Ground)</h2>
-              <p className="tournament-venue-text">
-                The tournament is played at the historic Oval Maidan, also known as the Elphinstone Ground, located in the heart of Mumbai. This iconic ground has been the home of the NM Shipping Cricket Tournament, hosting decades of competitive cricket among corporate teams.
-              </p>
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Tournament"
+        title="Sheth Narottam Morarjee Shipping Cricket Tournament"
+        subtitle="A prestigious annual cricket tournament for corporate teams from the shipping and allied industries."
+        imageSrc={PAGE_HERO_IMAGES.tournament}
+      />
 
       {/* Live scores & stats (CricHeroes) */}
       <section className="tournament-embed-section">
@@ -96,7 +67,6 @@ function TournamentPage() {
         </div>
       </section>
 
-      {/* Tournament Updates */}
       <TournamentUpdateSection variant="full" />
 
       <ContactCTA />

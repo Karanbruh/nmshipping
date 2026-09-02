@@ -23,7 +23,10 @@ function About() {
           <div className="col-lg-6">
             <ScrollReveal variant="fade-left" delay={120}>
               <div className="about-split__media">
-                <img src={ABOUT.image} alt={ABOUT.imageAlt} loading="lazy" />
+                <div className="about-split__media-frame">
+                  <img src={ABOUT.image} alt={ABOUT.imageAlt} loading="lazy" />
+                </div>
+                <span className="about-split__media-accent" aria-hidden="true" />
               </div>
             </ScrollReveal>
           </div>

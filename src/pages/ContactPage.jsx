@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import SectionBadge from '../components/ui/SectionBadge'
 import ScrollReveal from '../components/ui/ScrollReveal'
-import { CONTACT } from '../constants/content'
+import PageHero from '../components/ui/PageHero'
+import { CONTACT, PAGE_HERO_IMAGES } from '../constants/content'
 
 const CONTACT_ITEMS = [
   {
@@ -47,18 +47,12 @@ function ContactPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero">
-        <div className="container-landing">
-          <ScrollReveal variant="fade-up" stagger={90}>
-            <SectionBadge>Contact Us</SectionBadge>
-            <h1 className="page-hero-title">Get In Touch</h1>
-            <p className="page-hero-sub">
-              We would love to speak with you. Feel free to reach out using the below details.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <PageHero
+        badge="Contact Us"
+        title="Get In Touch"
+        subtitle="We would love to speak with you. Feel free to reach out using the below details."
+        imageSrc={PAGE_HERO_IMAGES.contact}
+      />
 
       {/* Contact Info + Form */}
       <section className="contact-main-section">

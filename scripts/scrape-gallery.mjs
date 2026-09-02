@@ -25,10 +25,20 @@ const ALBUMS = [
       url: `https://nmshipping.in/match-${n}/`,
     }
   }),
-  // 2026
-  { year: 2026, slug: 'semi-finals', title: 'Semi-Finals', url: 'https://nmshipping.in/semi-finals-2026/' },
+  // 2026 — award cards on landing page + dedicated match albums
+  { year: 2026, slug: 'semi-finals', title: 'Semi Finals', url: 'https://nmshipping.in/semi-finals-2026/' },
   { year: 2026, slug: 'finals', title: 'Finals', url: 'https://nmshipping.in/finals-2026/' },
 ]
+
+/** 2026 award albums — single hero images from the /2026-3/ landing page */
+const ALBUMS_2026_AWARDS = [
+  { slug: 'best-wicket-keeper', title: 'Best Wicket-Keeper', pattern: /Best-wicketkeeper-2026/i },
+  { slug: 'best-fielder', title: 'Best Fielder', pattern: /Best-Fielder/i },
+  { slug: 'best-bowler', title: 'Best Bowler', pattern: /Best-Bowler-2026/i },
+  { slug: 'best-batsman', title: 'Best Batsman', pattern: /Best-Batsman-2026/i },
+]
+
+const LANDING_2026_URL = 'https://nmshipping.in/2026-3/'
 
 function toFullRes(url) {
   return url
@@ -87,14 +97,60 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms))
 }
 
+async function fetch2026AwardAlbums() {
+  const res = await fetch(LANDING_2026_URL, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (compatible; NMShippingGalleryScraper/1.0)',
+      Accept: 'text/html',
+    },
+  })
+  if (!res.ok) {
+    console.warn(`FAIL ${res.status} ${LANDING_2026_URL}`)
+    return []
+  }
+  const html = await res.text()
+  const allImages = extractImages(html)
+  const awards = []
+  for (const award of ALBUMS_2026_AWARDS) {
+    const image = allImages.find((url) => award.pattern.test(url))
+    if (!image) {
+      console.warn(`SKIP missing image for 2026/${award.slug}`)
+      continue
+    }
+    console.log(`OK  2026/${award.slug}: 1 image (landing page)`)
+    awards.push({
+      year: 2026,
+      slug: award.slug,
+      title: award.title,
+      cover: image,
+      images: [image],
+    })
+  }
+  return awards
+}
+
 async function main() {
   const results = []
+
+  const awardAlbums = await fetch2026AwardAlbums()
+  results.push(...awardAlbums)
+  await sleep(200)
+
   for (const album of ALBUMS) {
     results.push(await fetchAlbum(album))
     await sleep(200)
   }
 
   const byYear = new Map()
+  const albumOrder2026 = [
+    'best-wicket-keeper',
+    'best-fielder',
+    'best-bowler',
+    'best-batsman',
+    'semi-finals',
+    'finals',
+  ]
+
   for (const album of results) {
     if (!album.images.length) {
       console.warn(`SKIP empty ${album.year}/${album.slug}`)
@@ -107,6 +163,13 @@ async function main() {
       cover: album.cover,
       images: album.images,
     })
+  }
+
+  const year2026 = byYear.get(2026)
+  if (year2026) {
+    year2026.sort(
+      (a, b) => albumOrder2026.indexOf(a.slug) - albumOrder2026.indexOf(b.slug),
+    )
   }
 
   const years = [...byYear.keys()].sort((a, b) => b - a)

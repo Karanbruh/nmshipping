@@ -1,5 +1,6 @@
 import SectionBadge from '../components/ui/SectionBadge'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import PageHero from '../components/ui/PageHero'
 import AboutSplitRow from '../components/AboutSplitRow'
 import ContactCTA from '../components/ContactCTA'
 import { ABOUT, MISSION, VISION, VALUES } from '../constants/content'
@@ -7,18 +8,12 @@ import { ABOUT, MISSION, VISION, VALUES } from '../constants/content'
 function AboutPage() {
   return (
     <>
-      <section
-        className="page-hero page-hero--cricket"
-        style={{ '--page-hero-bg': `url(${ABOUT.heroImage})` }}
-      >
-        <div className="container-landing">
-          <ScrollReveal variant="fade-up" stagger={90}>
-            <SectionBadge>About Us</SectionBadge>
-            <h1 className="page-hero-title">{ABOUT.heading}</h1>
-            <p className="page-hero-sub">Established 1962 &bull; Mumbai, India</p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <PageHero
+        badge="About Us"
+        title={ABOUT.heading}
+        subtitle="Established 1962 • Mumbai, India"
+        imageSrc={ABOUT.heroImage}
+      />
 
       <AboutSplitRow
         badge={ABOUT.badge}

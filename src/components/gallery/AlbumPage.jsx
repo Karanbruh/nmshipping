@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
-import SectionBadge from '../ui/SectionBadge'
 import ScrollReveal from '../ui/ScrollReveal'
+import PageHero from '../ui/PageHero'
 import ContactCTA from '../ContactCTA'
 import Lightbox from './Lightbox'
+import { PAGE_HERO_IMAGES } from '../../constants/content'
 import { getGalleryAlbum } from '../../constants/gallery'
 
 function AlbumPage() {
@@ -22,24 +23,22 @@ function AlbumPage() {
   const next = () =>
     setLightboxIndex((i) => (i === null ? null : (i + 1) % album.images.length))
 
+  const heroImage = album.images[0] ?? PAGE_HERO_IMAGES.album
+
   return (
     <>
-      <section className="page-hero">
-        <div className="container-landing">
-          <ScrollReveal variant="fade-up" stagger={90}>
-            <SectionBadge>Gallery {year}</SectionBadge>
-            <h1 className="page-hero-title">{album.title}</h1>
-            <p className="page-hero-sub">
-              {album.images.length} photo{album.images.length === 1 ? '' : 's'} from the tournament archive.
-            </p>
-            <Link to={`/gallery/${year}`} className="pill-btn pill-btn-outline-dark mt-3">
-              <span>
-                <i className="bi bi-arrow-left" /> Back to {year} Gallery
-              </span>
-            </Link>
-          </ScrollReveal>
-        </div>
-      </section>
+      <PageHero
+        badge={`Gallery ${year}`}
+        title={album.title}
+        subtitle={`${album.images.length} photo${album.images.length === 1 ? '' : 's'} from the tournament archive.`}
+        imageSrc={heroImage}
+      >
+        <Link to={`/gallery/${year}`} className="pill-btn pill-btn-outline mt-3">
+          <span>
+            <i className="bi bi-arrow-left" /> Back to {year} Gallery
+          </span>
+        </Link>
+      </PageHero>
 
       <section className="gallery-main-section">
         <div className="container-landing">

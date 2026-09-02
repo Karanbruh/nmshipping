@@ -1,6 +1,7 @@
-import SectionBadge from '../components/ui/SectionBadge'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import PageHero from '../components/ui/PageHero'
 import NewsCard from '../components/cricket-news/NewsCard'
+import { PAGE_HERO_IMAGES } from '../constants/content'
 import { useCricketNews } from '../hooks/useCricketNews'
 
 function NewsCardSkeleton() {
@@ -22,17 +23,12 @@ function CricketNewsPage() {
 
   return (
     <>
-      <section className="page-hero">
-        <div className="container-landing">
-          <ScrollReveal variant="fade-up" stagger={90}>
-            <SectionBadge>Cricket News</SectionBadge>
-            <h1 className="page-hero-title">Latest from Indian Cricket</h1>
-            <p className="page-hero-sub">
-              Stay updated with the latest Indian cricket headlines, match updates, and stories from trusted sources.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <PageHero
+        badge="Cricket News"
+        title="Latest from Indian Cricket"
+        subtitle="Stay updated with the latest Indian cricket headlines, match updates, and stories from trusted sources."
+        imageSrc={PAGE_HERO_IMAGES.cricketNews}
+      />
 
       <section className="cricket-news-section">
         <div className="container-landing">
