@@ -68,10 +68,6 @@ export const TOURNAMENT_EMBEDS = [
   },
 ]
 
-export const SOCIAL_LINKS = [
-  { icon: 'bi-whatsapp', href: 'https://wa.me/919137601154', label: 'WhatsApp' },
-]
-
 export const HERO = {
   title: 'Sheth Narottam Morarjee Shipping Cricket Tournament',
   subtitle:

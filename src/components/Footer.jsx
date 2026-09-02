@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import ScrollReveal from './ui/ScrollReveal'
-import { BRAND, CONTACT, FOOTER_LINKS, SOCIAL_LINKS } from '../constants/content'
+import { BRAND, CONTACT, FOOTER_LINKS } from '../constants/content'
 
 function Footer() {
   return (
@@ -33,14 +33,7 @@ function Footer() {
           </div>
           <div className="col-lg-3">
             <h4 className="footer-heading">Connect</h4>
-            <div className="footer-social">
-              {SOCIAL_LINKS.map((item) => (
-                <a key={item.label} href={item.href} className="social-circle" aria-label={item.label} target="_blank" rel="noopener noreferrer">
-                  <i className={`bi ${item.icon}`} aria-hidden="true" />
-                </a>
-              ))}
-            </div>
-            <a href={CONTACT.whatsapp} className="pill-btn pill-btn-outline pill-btn-sm mt-3" target="_blank" rel="noopener noreferrer">
+            <a href={CONTACT.whatsapp} className="pill-btn pill-btn-outline pill-btn-sm" target="_blank" rel="noopener noreferrer">
               <i className="bi bi-whatsapp" />
               <span>WhatsApp Us</span>
             </a>
