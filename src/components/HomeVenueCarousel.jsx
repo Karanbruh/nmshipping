@@ -4,7 +4,7 @@ import SectionBadge from './ui/SectionBadge'
 import ScrollReveal from './ui/ScrollReveal'
 import { HOME_PROMOS, VENUE_CAROUSEL_IMAGES } from '../constants/content'
 
-const AUTO_PLAY_MS = 4000
+const AUTO_PLAY_MS = 3000
 
 function HomeVenueCarousel() {
   const promo = HOME_PROMOS.venue

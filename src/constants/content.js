@@ -171,8 +171,8 @@ export const ABOUT = {
   text: 'The Sheth Narottam Morarjee Shipping Cricket Tournament, established in 1962, is a prestigious annual event celebrating the spirit of sportsmanship and camaraderie within the shipping industry. It was initiated by Late Smt. Sumati Morarjee, the then Director and ex-Chairperson of the Scindia Steam Navigation Co Ltd, with the vision of fostering a platform for corporate teams engaged in shipping and allied industries to compete and connect.',
   textContinued:
     'Over the past six decades, the tournament has grown in stature, attracting participation from renowned organizations worldwide. The event is a testament to the enduring legacy of the shipping industry and its commitment to promoting sports and fostering relationships.',
-  image: IMAGES.cricket,
-  imageAlt: 'Cricket action celebrating the tournament legacy',
+  image: PAGE_HERO_IMAGES.about,
+  imageAlt: 'Players celebrating the spirit of the tournament',
   stats: [
     { value: '1962', label: 'Established' },
     { value: '60+', label: 'Years of Legacy' },

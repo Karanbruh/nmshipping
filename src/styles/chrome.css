@@ -15,7 +15,7 @@ section[id] {
 /* Navbar */
 .site-nav {
   background: var(--white);
-  padding: 14px 0;
+  padding: 12px 0;
   z-index: 1030;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -29,9 +29,9 @@ section[id] {
 }
 
 .brand-logo {
-  height: 52px;
+  height: 78px;
   width: auto;
-  max-width: min(280px, 55vw);
+  max-width: min(420px, 62vw);
   object-fit: contain;
   object-position: left center;
 }
@@ -518,8 +518,8 @@ section[id] {
   }
 
   .brand-logo {
-    height: 42px;
-    max-width: min(220px, 50vw);
+    height: 58px;
+    max-width: min(300px, 58vw);
   }
 
   .nav-center .nav-contact-btn {
