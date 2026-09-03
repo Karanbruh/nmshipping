@@ -1,9 +1,10 @@
 .page-wrap {
-  overflow-x: hidden;
+  /* clip keeps horizontal bleed contained without breaking position:sticky */
+  overflow-x: clip;
 }
 
 section[id] {
-  scroll-margin-top: 96px;
+  scroll-margin-top: 110px;
 }
 
 .container-landing {
@@ -14,14 +15,23 @@ section[id] {
 
 /* Navbar */
 .site-nav {
+  position: sticky;
+  top: 0;
   background: var(--white);
-  padding: 12px 0;
+  padding: 0;
+  --bs-navbar-padding-y: 0;
   z-index: 1030;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.site-nav .navbar-brand {
+  padding: 0;
+  margin-right: auto;
+}
+
 .site-nav .container-landing {
   gap: 16px;
+  min-height: 0;
 }
 
 .site-nav .navbar-collapse {
@@ -29,9 +39,9 @@ section[id] {
 }
 
 .brand-logo {
-  height: 78px;
+  height: 96px;
   width: auto;
-  max-width: min(420px, 62vw);
+  max-width: min(480px, 70vw);
   object-fit: contain;
   object-position: left center;
 }
@@ -518,8 +528,8 @@ section[id] {
   }
 
   .brand-logo {
-    height: 58px;
-    max-width: min(300px, 58vw);
+    height: 72px;
+    max-width: min(360px, 68vw);
   }
 
   .nav-center .nav-contact-btn {
