@@ -72,12 +72,16 @@
 
 .about-split__stat {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
   min-width: 96px;
-  padding: 14px 18px;
-  background: var(--cream);
-  border: 1px solid rgba(201, 168, 76, 0.35);
+  padding: 16px 14px;
+  background: var(--white);
+  border: 1px solid rgba(201, 168, 76, 0.5);
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 16px rgba(13, 27, 42, 0.06);
 }
@@ -87,17 +91,17 @@
 }
 
 .about-split__stat strong {
-  font-size: 1.15rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--primary);
   line-height: 1.2;
 }
 
 .about-split__stat span {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: var(--muted);
 }
 

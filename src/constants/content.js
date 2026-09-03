@@ -31,12 +31,12 @@ export const NAV_LINKS = [
 ]
 
 export const PAGE_HERO_IMAGES = {
-  about: '/assets/about/about-mission.jpg',
-  tournament: '/assets/about/about-vision.jpg',
-  cricketNews: '/assets/about/about-legacy.jpg',
+  about: '/assets/about/about-vision.jpg',
+  tournament: '/assets/tournament/update/2026-pitch.png',
+  cricketNews: '/assets/about/about-values.jpg',
   contact: '/assets/video/sndm-18-poster.jpg',
-  gallery: '/assets/gallery/pool/stock-01.jpg',
-  sponsors: '/assets/about/about-mission.jpg',
+  gallery: '/assets/tournament/carousel/oval-maidan-1.png',
+  sponsors: '/assets/tournament/update/2026-trophy.png',
   booking: '/assets/about/about-mission.jpg',
   album: '/assets/about/about-legacy.jpg',
 }
@@ -114,26 +114,53 @@ export const BOOKING = {
   },
 }
 
+export const TOURNAMENT_CAROUSEL_IMAGES = [
+  {
+    src: '/assets/tournament/update/2026-field.png',
+    alt: 'Players walking across the field after a 2026 tournament match',
+  },
+  {
+    src: '/assets/tournament/update/2026-runners-up.png',
+    alt: 'Runners-up team at the 2026 Sheth Narottam Morarjee Shipping Cricket Tournament',
+  },
+  {
+    src: '/assets/tournament/update/2026-trophy.png',
+    alt: 'Winners holding the ship\'s wheel trophy at the 2026 tournament',
+  },
+  {
+    src: '/assets/tournament/update/2026-champions.png',
+    alt: 'Champions of the 2026 Sheth Narottam Morarjee Shipping Cricket Tournament',
+  },
+  {
+    src: '/assets/tournament/update/2026-team.png',
+    alt: 'A participating team posing at Mumbai Police Gymkhana during the 2026 tournament',
+  },
+  {
+    src: '/assets/tournament/update/2026-pitch.png',
+    alt: 'Match in progress on the pitch at the 2026 tournament',
+  },
+]
+
 export const VENUE_CAROUSEL_IMAGES = [
   {
-    src: '/assets/about/about-mission.jpg',
-    alt: 'Oval Maidan cricket ground in Mumbai',
+    src: '/assets/tournament/carousel/oval-maidan-1.png',
+    alt: 'Batsmen running between wickets at Oval Maidan with Rajabai Clock Tower behind',
   },
   {
-    src: '/assets/about/about-legacy.jpg',
-    alt: 'Cricket action from the Sheth Narottam Morarjee Shipping Cricket Tournament',
+    src: '/assets/tournament/carousel/oval-maidan-2.png',
+    alt: 'Batsman mid-swing during a match at Oval Maidan',
   },
   {
-    src: '/assets/video/sndm-18-poster.jpg',
-    alt: 'Tournament highlight at Oval Maidan',
+    src: '/assets/tournament/carousel/oval-maidan-3.png',
+    alt: 'Cricket match in progress at Oval Maidan with historic Mumbai skyline',
   },
   {
-    src: '/assets/gallery/pool/stock-01.jpg',
-    alt: 'Cricket match in progress',
+    src: '/assets/tournament/carousel/oval-maidan-4.png',
+    alt: 'Bowler in action on the Oval Maidan cricket ground',
   },
   {
-    src: '/assets/gallery/pool/stock-09.jpg',
-    alt: 'Players on the cricket field',
+    src: '/assets/tournament/carousel/oval-maidan-5.png',
+    alt: 'Rajabai Clock Tower rising above Oval Maidan cricket ground',
   },
 ]
 

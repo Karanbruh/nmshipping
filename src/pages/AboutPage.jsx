@@ -18,8 +18,8 @@ function AboutPage() {
       <AboutSplitRow
         badge={ABOUT.badge}
         heading={ABOUT.heading}
-        imageSrc={ABOUT.image}
-        imageAlt={ABOUT.imageAlt}
+        imageSrc="/assets/tournament/update/2026-trophy.png"
+        imageAlt="Winners holding the ship's wheel trophy at the 2026 tournament"
         stats={ABOUT.stats}
         sectionIndex={1}
       >
@@ -31,8 +31,8 @@ function AboutPage() {
         badge={MISSION.badge}
         heading={MISSION.heading}
         icon={MISSION.icon}
-        imageSrc={MISSION.image}
-        imageAlt={MISSION.imageAlt}
+        imageSrc="/assets/tournament/update/2026-field.png"
+        imageAlt="Players walking across the field after a 2026 tournament match"
         reverse
         tone="cream"
         sectionIndex={2}

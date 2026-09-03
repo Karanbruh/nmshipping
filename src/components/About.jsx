@@ -13,6 +13,14 @@ function About() {
               <div className="about-split__copy">
                 <SectionBadge>{ABOUT.badge}</SectionBadge>
                 <h2 className="about-heading">{ABOUT.heading}</h2>
+                <ScrollReveal as="ul" variant="fade-up" stagger={80} className="about-split__stats">
+                  {ABOUT.stats.map((stat) => (
+                    <li key={stat.label} className="about-split__stat">
+                      <strong>{stat.value}</strong>
+                      <span>{stat.label}</span>
+                    </li>
+                  ))}
+                </ScrollReveal>
                 <p className="about-copy">{ABOUT.text}</p>
                 <Link to="/about" className="pill-btn pill-btn-primary mt-4">
                   <span>Know more</span>
