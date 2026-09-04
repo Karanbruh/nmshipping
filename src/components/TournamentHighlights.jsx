@@ -15,7 +15,7 @@ const HIGHLIGHTS = [
   {
     icon: 'bi-geo-alt',
     title: 'Oval Maidan',
-    description: 'Played at the historic Elphinstone Ground in the heart of Mumbai.',
+    description: 'Played at the historic Oval Maidan in the heart of Mumbai.',
   },
 ]
 

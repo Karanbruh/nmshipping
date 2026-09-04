@@ -12,7 +12,6 @@ import GalleryPage from './pages/GalleryPage'
 import AlbumPage from './components/gallery/AlbumPage'
 import SponsorsPage from './pages/SponsorsPage'
 import { DEFAULT_GALLERY_YEAR } from './constants/gallery'
-import { DEFAULT_SPONSORS_YEAR } from './constants/sponsors'
 
 function App() {
   return (
@@ -30,8 +29,8 @@ function App() {
           <Route path="/gallery" element={<Navigate to={`/gallery/${DEFAULT_GALLERY_YEAR}`} replace />} />
           <Route path="/gallery/:year" element={<GalleryPage />} />
           <Route path="/gallery/:year/:slug" element={<AlbumPage />} />
-          <Route path="/sponsors" element={<Navigate to={`/sponsors/${DEFAULT_SPONSORS_YEAR}`} replace />} />
-          <Route path="/sponsors/:year" element={<SponsorsPage />} />
+          <Route path="/sponsors" element={<SponsorsPage />} />
+          <Route path="/sponsors/:year" element={<Navigate to="/sponsors" replace />} />
         </Routes>
         <Footer />
         <WhatsAppFab />

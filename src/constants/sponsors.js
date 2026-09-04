@@ -36,31 +36,11 @@ const BJK_SPORTS = {
   logo: bjkSportsLogo,
 }
 
-export const SPONSORS_YEARS = [
-  {
-    year: 2026,
-    sponsors: [JSW, JM_BAXI, MCA],
-  },
-  {
-    year: 2025,
-    sponsors: [JSW, JM_BAXI, MCA],
-  },
-  {
-    year: 2024,
-    sponsors: [BJK_SPORTS, JSW, HAPAG_LLOYD, JM_BAXI, MCA],
-  },
-]
+/** All unique sponsors shown on the Sponsors page */
+export const ALL_SPONSORS = [JSW, JM_BAXI, MCA, HAPAG_LLOYD, BJK_SPORTS]
 
-export const DEFAULT_SPONSORS_YEAR = SPONSORS_YEARS[0].year
-
-export const SPONSORS_NAV_YEARS = SPONSORS_YEARS.map(({ year }) => year)
-
-/** Current-year sponsors — used on home carousel and presenting partners */
-export const SPONSORS = SPONSORS_YEARS[0].sponsors
+/** Current sponsors — used on home carousel */
+export const SPONSORS = [JSW, JM_BAXI, MCA]
 
 /** Featured partners shown above the home video for exposure */
 export const PRESENTING_SPONSORS = [JSW, JM_BAXI, MCA]
-
-export function getSponsorsYear(year) {
-  return SPONSORS_YEARS.find((entry) => entry.year === year) ?? null
-}

@@ -1,5 +1,4 @@
 import { DEFAULT_GALLERY_YEAR } from './gallery'
-import { DEFAULT_SPONSORS_YEAR } from './sponsors'
 
 export const BRAND = {
   name: 'Sheth Narottam Morarjee Shipping Cricket Tournament',
@@ -27,7 +26,7 @@ export const NAV_LINKS = [
   { label: 'Tournament', to: '/tournament' },
   { label: 'Cricket News', to: '/cricket-news' },
   { label: 'Gallery', to: `/gallery/${DEFAULT_GALLERY_YEAR}` },
-  { label: 'Sponsors', to: `/sponsors/${DEFAULT_SPONSORS_YEAR}` },
+  { label: 'Sponsors', to: '/sponsors' },
 ]
 
 export const PAGE_HERO_IMAGES = {
@@ -72,14 +71,14 @@ export const HERO = {
   title: 'Sheth Narottam Morarjee Shipping Cricket Tournament',
   subtitle:
     'A prestigious annual cricket tournament celebrating sportsmanship and camaraderie within the shipping and allied industries since 1962.',
-  venue: 'Oval Maidan (Elphinstone Ground)',
+  venue: 'Oval Maidan',
   videoSrc: '/assets/video/sndm-18.mp4',
   posterSrc: '/assets/video/sndm-18-poster.jpg',
 }
 
 export const HOME_PROMOS = {
   cricket: {
-    title: 'Tournament Updates',
+    title: 'Tournament Update',
     subtitle: 'Match highlights, fixtures, and the latest from the ground.',
     imageSrc: '/assets/about/about-legacy.jpg',
     imageAlt: 'Cricket action from the Sheth Narottam Morarjee Shipping Cricket Tournament',
@@ -88,7 +87,7 @@ export const HOME_PROMOS = {
     ctaVariant: 'gold',
   },
   venue: {
-    title: 'Oval Maidan (Elphinstone Ground)',
+    title: 'Oval Maidan',
     subtitle: 'Book Mumbai\'s iconic cricket ground for your next match or corporate event.',
     imageSrc: '/assets/about/about-mission.jpg',
     imageAlt: 'Oval Maidan cricket ground in Mumbai',
@@ -100,10 +99,10 @@ export const HOME_PROMOS = {
 
 export const BOOKING = {
   venue: {
-    title: 'Oval Maidan (Elphinstone Ground)',
+    title: 'Oval Maidan',
     location: 'Mumbai, Maharashtra',
     description:
-      'The historic Oval Maidan, also known as the Elphinstone Ground, sits in the heart of Mumbai. This iconic ground has been the home of the NM Shipping Cricket Tournament, hosting decades of competitive cricket among corporate teams.',
+      'The historic Oval Maidan sits in the heart of Mumbai. This iconic ground has been the home of the NM Shipping Cricket Tournament, hosting decades of competitive cricket among corporate teams.',
     imageSrc: '/assets/about/about-mission.jpg',
     imageAlt: 'Oval Maidan cricket ground in Mumbai',
   },
@@ -242,7 +241,7 @@ export const FOOTER_LINKS = {
     { label: 'Tournament', to: '/tournament' },
     { label: 'Cricket News', to: '/cricket-news' },
     { label: 'Gallery', to: `/gallery/${DEFAULT_GALLERY_YEAR}` },
-    { label: 'Sponsors', to: `/sponsors/${DEFAULT_SPONSORS_YEAR}` },
+    { label: 'Sponsors', to: '/sponsors' },
     { label: 'Contact Us', to: '/contact' },
   ],
 }

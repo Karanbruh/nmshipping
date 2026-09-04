@@ -11,13 +11,7 @@ function BookingPage() {
     <>
       <PageHero
         badge="Booking"
-        title={
-          <>
-            Oval Maidan
-            <br />
-            (Elphinstone Ground)
-          </>
-        }
+        title="Oval Maidan"
         subtitle={venue.location}
         imageSrc={PAGE_HERO_IMAGES.booking}
       />
@@ -57,9 +51,6 @@ function BookingPage() {
                   <div className="booking-page__actions">
                     <Link to="/contact" className="pill-btn pill-btn-primary">
                       <span>Contact Us</span>
-                    </Link>
-                    <Link to="/tournament" className="pill-btn pill-btn-outline-dark">
-                      <span>View Tournament</span>
                     </Link>
                   </div>
                 </div>

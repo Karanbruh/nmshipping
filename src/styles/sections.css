@@ -135,9 +135,10 @@
 }
 
 .home-promo-section__heading {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin: 16px 0;
   line-height: 1.3;
 }
@@ -288,9 +289,10 @@
 }
 
 .about-heading {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin: 16px 0 18px;
   line-height: 1.3;
 }
@@ -326,9 +328,10 @@
 }
 
 .highlights-heading {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin-top: 16px;
 }
 
@@ -360,9 +363,10 @@
 }
 
 .highlight-card h3 {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin-bottom: 10px;
 }
 
@@ -379,9 +383,10 @@
 }
 
 .gallery-preview-heading {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin-top: 16px;
 }
 
@@ -467,9 +472,10 @@
 }
 
 .sponsors-heading {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin-top: 16px;
 }
 
@@ -499,11 +505,12 @@
 
 .sponsors-carousel-title {
   margin: 0;
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--heading);
 }
 
 .sponsors-carousel-viewport {
@@ -611,6 +618,12 @@
   justify-content: center;
   min-height: 120px;
   padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .sponsor-logo-tile img {
@@ -620,6 +633,49 @@
   max-height: 110px;
   object-fit: contain;
   object-position: center;
+  transition: transform 0.25s ease;
+}
+
+@media (hover: hover) {
+  .sponsor-logo-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(27, 43, 124, 0.12);
+    background-color: rgba(27, 43, 124, 0.04);
+  }
+
+  .sponsor-logo-tile:hover img {
+    transform: scale(1.06);
+  }
+}
+
+.sponsor-logo-tile:focus-visible {
+  outline: 2px solid var(--heading, #1b2b7c);
+  outline-offset: 4px;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(27, 43, 124, 0.12);
+  background-color: rgba(27, 43, 124, 0.04);
+}
+
+.sponsor-logo-tile:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 6px 16px rgba(27, 43, 124, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-logo-tile,
+  .sponsor-logo-tile img {
+    transition: none;
+  }
+
+  .sponsor-logo-tile:hover,
+  .sponsor-logo-tile:focus-visible,
+  .sponsor-logo-tile:active {
+    transform: none;
+  }
+
+  .sponsor-logo-tile:hover img {
+    transform: none;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -802,9 +858,10 @@
 }
 
 .booking-page__heading {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin: 16px 0 12px;
   line-height: 1.3;
 }
@@ -841,10 +898,11 @@
   font-size: 1.35rem;
 }
 
-.booking-page__status-body h2 {
+.booking-page__status-body h3 {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin: 0 0 6px;
 }
 

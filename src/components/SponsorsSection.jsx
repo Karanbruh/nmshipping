@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import SectionBadge from './ui/SectionBadge'
 import ScrollReveal from './ui/ScrollReveal'
 import SponsorsCarousel from './SponsorsCarousel'
-import { DEFAULT_SPONSORS_YEAR } from '../constants/sponsors'
 
 function SponsorsSection() {
   return (
@@ -24,7 +23,7 @@ function SponsorsSection() {
 
         <ScrollReveal variant="fade-up" delay={200}>
           <div className="text-center mt-4 mt-md-5">
-            <Link to={`/sponsors/${DEFAULT_SPONSORS_YEAR}`} className="pill-btn pill-btn-primary">
+            <Link to="/sponsors" className="pill-btn pill-btn-primary">
               <span>View All Sponsors</span>
             </Link>
           </div>

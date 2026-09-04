@@ -108,9 +108,10 @@
 }
 
 .contact-info-panel__header h2 {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin: 0 0 6px;
 }
 
@@ -219,9 +220,10 @@
 }
 
 .contact-form-wrap h2 {
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--heading);
   margin-bottom: 24px;
 }
 
