@@ -1,4 +1,3 @@
-import PresentingSponsors from '../components/PresentingSponsors'
 import Hero from '../components/Hero'
 import HomePromoBanner from '../components/HomePromoBanner'
 import HomeVenueCarousel from '../components/HomeVenueCarousel'
@@ -11,7 +10,6 @@ import ContactCTA from '../components/ContactCTA'
 function HomePage() {
   return (
     <>
-      <PresentingSponsors />
       <Hero />
       <HomePromoBanner variant="cricket" />
       <HomeVenueCarousel />

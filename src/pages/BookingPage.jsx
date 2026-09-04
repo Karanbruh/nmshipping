@@ -11,8 +11,14 @@ function BookingPage() {
     <>
       <PageHero
         badge="Booking"
-        title="Oval Maidan"
-        subtitle={venue.location}
+        title={venue.heroTitle}
+        subtitle={
+          <>
+            {venue.aka}
+            <br />
+            {venue.location}
+          </>
+        }
         imageSrc={PAGE_HERO_IMAGES.booking}
       />
 

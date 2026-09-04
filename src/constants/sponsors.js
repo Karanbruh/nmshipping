@@ -41,6 +41,3 @@ export const ALL_SPONSORS = [JSW, JM_BAXI, MCA, HAPAG_LLOYD, BJK_SPORTS]
 
 /** Current sponsors — used on home carousel */
 export const SPONSORS = [JSW, JM_BAXI, MCA]
-
-/** Featured partners shown above the home video for exposure */
-export const PRESENTING_SPONSORS = [JSW, JM_BAXI, MCA]

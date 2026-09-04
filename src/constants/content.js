@@ -99,7 +99,9 @@ export const HOME_PROMOS = {
 
 export const BOOKING = {
   venue: {
-    title: 'Oval Maidan',
+    title: 'About Oval Maidan',
+    heroTitle: 'Oval Maidan',
+    aka: '(Elphinstone Ground)',
     location: 'Mumbai, Maharashtra',
     description:
       'The historic Oval Maidan sits in the heart of Mumbai. This iconic ground has been the home of the NM Shipping Cricket Tournament, hosting decades of competitive cricket among corporate teams.',

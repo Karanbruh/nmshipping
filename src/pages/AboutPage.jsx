@@ -16,7 +16,7 @@ function AboutPage() {
       />
 
       <AboutSplitRow
-        badge={ABOUT.badge}
+        // badge={ABOUT.badge}
         heading={ABOUT.heading}
         imageSrc="/assets/tournament/update/2026-trophy.png"
         imageAlt="Winners holding the ship's wheel trophy at the 2026 tournament"
@@ -28,7 +28,7 @@ function AboutPage() {
       </AboutSplitRow>
 
       <AboutSplitRow
-        badge={MISSION.badge}
+        // badge={MISSION.badge}
         heading={MISSION.heading}
         icon={MISSION.icon}
         imageSrc="/assets/tournament/update/2026-field.png"
@@ -43,7 +43,7 @@ function AboutPage() {
       </AboutSplitRow>
 
       <AboutSplitRow
-        badge={VALUES.badge}
+        // badge={VALUES.badge}
         heading={VALUES.heading}
         imageSrc={VALUES.image}
         imageAlt={VALUES.imageAlt}
@@ -52,7 +52,7 @@ function AboutPage() {
       />
 
       <AboutSplitRow
-        badge={VISION.badge}
+        // badge={VISION.badge}
         heading={VISION.heading}
         icon={VISION.icon}
         imageSrc={VISION.image}
