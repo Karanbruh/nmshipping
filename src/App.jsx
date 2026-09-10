@@ -5,7 +5,6 @@ import WhatsAppFab from './components/WhatsAppFab'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
-import BookingPage from './pages/BookingPage'
 import TournamentPage from './pages/TournamentPage'
 import CricketNewsPage from './pages/CricketNewsPage'
 import GalleryPage from './pages/GalleryPage'
@@ -22,7 +21,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/booking" element={<Navigate to="/" replace />} />
           <Route path="/tournament" element={<TournamentPage />} />
           <Route path="/tournament/:year" element={<TournamentPage />} />
           <Route path="/cricket-news" element={<CricketNewsPage />} />

@@ -1,6 +1,6 @@
 import Hero from '../components/Hero'
+import HomeCricketNews from '../components/HomeCricketNews'
 import HomePromoBanner from '../components/HomePromoBanner'
-import HomeVenueCarousel from '../components/HomeVenueCarousel'
 import About from '../components/About'
 import TournamentUpdateSection from '../components/TournamentUpdateSection'
 import SponsorsSection from '../components/SponsorsSection'
@@ -11,8 +11,8 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <HomeCricketNews />
       <HomePromoBanner variant="cricket" />
-      <HomeVenueCarousel />
       <About />
       <TournamentUpdateSection />
       <GalleryPreview />
