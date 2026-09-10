@@ -195,15 +195,15 @@ export const VISION = {
   heading: 'Our Vision',
   icon: 'bi-binoculars',
   text: 'To make the Sheth Narottam Morarjee Shipping Cricket Tournament a nationally recognized event, celebrating the spirit of sportsmanship within the maritime industry.',
-  image: IMAGES.maritime,
-  imageAlt: 'Players celebrating after a tournament match',
+  image: '/assets/tournament/update/2026-pitch.png',
+  imageAlt: 'Match in progress at the Sheth Narottam Morarjee Shipping Cricket Tournament 2026',
 }
 
 export const VALUES = {
   badge: 'What We Stand For',
   heading: 'Our Values',
-  image: IMAGES.heritage,
-  imageAlt: 'Cricket action reflecting tournament values of fair play and excellence',
+  image: '/assets/tournament/update/2026-team.png',
+  imageAlt: 'Tournament team posing together at the 2026 cricket tournament',
   items: [
     {
       title: 'Community',
