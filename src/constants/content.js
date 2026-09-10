@@ -22,6 +22,7 @@ export const IMAGES = {
 export const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
+  { label: 'Booking', to: '/booking', disabled: true },
   { label: 'Tournament', to: '/tournament' },
   { label: 'Cricket News', to: '/cricket-news' },
   { label: 'Gallery', to: `/gallery/${DEFAULT_GALLERY_YEAR}` },

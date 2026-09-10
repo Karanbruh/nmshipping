@@ -83,7 +83,8 @@ section[id] {
 
 /* Shared pill shape for all nav items */
 .nav-center > a:not(.nav-contact-btn),
-.nav-dropdown-trigger {
+.nav-dropdown-trigger,
+.nav-center > .nav-link-disabled {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -100,6 +101,13 @@ section[id] {
   color: #64748b;
   background: transparent;
   transition: color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.nav-center > .nav-link-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  user-select: none;
 }
 
 .nav-center > a:not(.nav-contact-btn):hover,

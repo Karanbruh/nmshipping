@@ -36,6 +36,19 @@ function Navbar() {
                 return <NavDropdown key={item.label} item={item} />
               }
 
+              if (item.disabled) {
+                return (
+                  <span
+                    key={item.label}
+                    className="nav-link-disabled"
+                    aria-disabled="true"
+                    title="Booking is currently unavailable"
+                  >
+                    {item.label}
+                  </span>
+                )
+              }
+
               const isActive = isLinkActive(location, item.to)
               return (
                 <Link key={item.to} to={item.to} className={isActive ? 'active' : ''}>
