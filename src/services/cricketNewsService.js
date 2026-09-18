@@ -13,6 +13,32 @@ function stripHtml(text = '') {
   return text.replace(/<[^>]*>/g, '').trim()
 }
 
+function toHttps(url) {
+  if (!url || typeof url !== 'string') return null
+  const trimmed = url.trim()
+  if (!trimmed) return null
+  return trimmed.replace(/^http:\/\//i, 'https://')
+}
+
+function extractImageUrl(item) {
+  const candidates = [
+    item.thumbnail,
+    item.image,
+    item.imageUrl,
+    item.enclosure?.link,
+    item.enclosure?.url,
+  ]
+
+  for (const candidate of candidates) {
+    const httpsUrl = toHttps(candidate)
+    if (httpsUrl?.startsWith('https://')) return httpsUrl
+  }
+
+  const html = `${item.description || ''}${item.content || ''}`
+  const imgMatch = html.match(/<img[^>]+src=["']([^"']+)["']/i)
+  return toHttps(imgMatch?.[1] || null)
+}
+
 function normalizeItem(item, index) {
   const url = item.link || item.url || ''
   const title = item.title || 'Untitled'
@@ -22,8 +48,8 @@ function normalizeItem(item, index) {
     id: item.guid || url || `news-${index}`,
     title,
     excerpt,
-    imageUrl: item.thumbnail || item.enclosure?.link || null,
-    source: item.author || 'Cricket News',
+    imageUrl: extractImageUrl(item),
+    source: item.author || item.source?.name || 'Cricket News',
     publishedAt: item.pubDate || item.publishedAt || null,
     url,
     isVideo: isVideoArticle(url, title),

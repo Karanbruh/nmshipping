@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { IMAGES } from '../../constants/content'
 
 function formatDate(dateString) {
@@ -14,7 +15,7 @@ function formatDate(dateString) {
 }
 
 function NewsCard({ article }) {
-  const imageSrc = article.imageUrl || IMAGES.cricket
+  const [imageSrc, setImageSrc] = useState(article.imageUrl || IMAGES.cricket)
 
   return (
     <article className="news-card">
@@ -25,7 +26,14 @@ function NewsCard({ article }) {
         rel="noopener noreferrer"
         aria-label={`Read: ${article.title}`}
       >
-        <img src={imageSrc} alt="" loading="lazy" />
+        <img
+          src={imageSrc}
+          alt=""
+          loading="lazy"
+          onError={() => {
+            if (imageSrc !== IMAGES.cricket) setImageSrc(IMAGES.cricket)
+          }}
+        />
         {article.isVideo && (
           <span className="news-card__badge">
             <i className="bi bi-play-fill" aria-hidden="true" />

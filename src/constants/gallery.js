@@ -62,6 +62,26 @@ export const GALLERY_YEARS = [
           "/assets/gallery/files/1848bbb79950.jpeg",
           "/assets/gallery/files/1be7b45ce952.jpeg"
         ]
+      },
+      {
+        "slug": "gala-dinner",
+        "title": "Gala Dinner",
+        "cover": "/assets/gallery/files/9bc029e41c52.jpeg",
+        "images": [
+          "/assets/gallery/files/9bc029e41c52.jpeg",
+          "/assets/gallery/files/f7c1e4cba393.jpeg",
+          "/assets/gallery/files/7910e40b3fce.jpeg",
+          "/assets/gallery/files/fb001dd8567a.jpeg",
+          "/assets/gallery/files/a3e5ba10c3af.jpeg",
+          "/assets/gallery/files/e83a890ead6b.jpeg",
+          "/assets/gallery/files/58280fe9bd9d.jpeg",
+          "/assets/gallery/files/3bcb11d919d3.jpeg",
+          "/assets/gallery/files/fbe796db16b1.jpeg",
+          "/assets/gallery/files/b5f934959169.jpeg",
+          "/assets/gallery/files/c9c8788a113d.jpeg",
+          "/assets/gallery/files/c9691d97d491.jpeg",
+          "/assets/gallery/files/6dc513aaff46.jpeg"
+        ]
       }
     ]
   },
